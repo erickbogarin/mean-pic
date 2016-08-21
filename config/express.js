@@ -1,12 +1,20 @@
-var express = require('express')
-    ,app = express()
-    ,bodyParser = require('body-parser')
-    ,routes = require('../app/routes');
+var express = require('express');
+var consign = require('consign');
+var bodyParser = require('body-parser');
 
+var app = express();
+
+// nosso primeiro middleware
 app.use(express.static('./public'));
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-routes(app);
+app.set('secret', 'homemavestruz'); 
+
+consign({cwd: 'app'})
+	.include('models')
+	.then('api')
+	.then('routes/auth.js')
+	.then('routes')
+	.into(app);
 
 module.exports = app;

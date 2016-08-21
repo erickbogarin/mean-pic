@@ -1,38 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="projeto">
-    <head>
-        <base href="/">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Cinelura</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <style>
-            .my-panel-repeat {
-              -webkit-transition:transform 0.8s;
-              transition:transform 0.8s;
-            }
-             
-            .my-panel-repeat.ng-leave-active{
-              transform: scale(0.1);
-            } 
-        </style>
-        <script src="js/lib/angular.min.js"></script>
-        <script src="js/lib/angular-resource.min.js"></script>
-        <script src="js/lib/angular-animate.min.js"></script>
-        <script src="js/lib/angular-route.min.js"></script>
-        <script src="js/lib/angular-cookies.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/controllers/principal-controller.js"></script>
-        <script src="js/controllers/foto-controller.js"></script>
-        <script src="js/controllers/grupo-controller.js"></script>
-        <script src="js/services/foto-service.js"></script>
-        <script src="js/directives/my-panel.js"></script>
-        <script src="js/directives/my-picture.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <ng-view></ng-view>
-        </div> <!-- fim container -->        
-    </body>
+<html lang="pt-br" ng-app="alurapic">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Alurapic</title>
+  	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/efeitos.css">
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-animate.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+	<script src="js/lib/angular-resource.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/fotos-controller.js"></script>
+	<script src="js/controllers/foto-controller.js"></script>
+	<script src="js/controllers/grupos-controller.js"></script>
+	<script src="js/controllers/login-controller.js"></script>
+	<script src="js/directives/minhas-diretivas.js"></script>
+	<script src="js/services/meus-servicos.js"></script>
+	<script src="js/services/token-interceptor.js"></script>
+</head>
+
+<body>
+	<header>
+		 <div class="navbar-fixed">
+			<nav ng-controller="LoginController">
+				<div class="nav-wrapper container">
+					<a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Mean Pic</a>
+					<ul id="slide-out" class="side-nav" style="transform: translateX(-100%);">
+						<li><a href="#!">Second Link</a></li>
+						<li><div class="divider"></div></li>    					
+						<div ng-if="check()">
+							<li><a href="/#/fotos/new"><i class="material-icons">library_add</i>Nova foto</a></li>
+							<li><a href="#" ng-click="logout()"><i class="material-icons">perm_identity</i>Logout</a></li>
+						</div>
+					</ul>
+					<a href="" data-activates="slide-out" class="button-collapse show-on-large right"><i class="material-icons">menu</i></a>
+				</div>
+			</nav>
+	  	</div>	  
+	</header>
+
+	<main class="container">
+		<ng-view></ng-view>
+	</main> <!-- fim container -->
+
+	<footer class="page-footer grey darken-3">
+		<div class="container">
+            <div class="row">
+            	<div class="col l6 s12">
+                	<h5 class="white-text">Footer Content</h5>
+                	<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              	</div>
+			</div>
+		</div>
+    	<div class="footer-copyright">
+        	<div class="container">
+				© 2014 Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        	</div>
+    	</div>
+	</footer>    
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script src="js/lib/script.js"></script>	    
+</body>
 </html>
