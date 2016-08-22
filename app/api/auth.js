@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var jwt    = require('jsonwebtoken'); 
+var jwt = require('jsonwebtoken'); 
 
 module.exports = function(app) {
 
