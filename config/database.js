@@ -1,9 +1,9 @@
 
-module.exports = function(url) {
+module.exports = function(uri) {
 
 	var mongoose = require('mongoose');
 
-	mongoose.connect(url);
+	mongoose.connect(uri);
 
 	mongoose.connection.on('connected', function() {
 		console.log('Conectado ao MongoDB')
